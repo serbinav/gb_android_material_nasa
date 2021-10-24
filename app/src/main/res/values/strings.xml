@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Nasa Material</string>
+    <string name="default_hint">Поиск в википедии</string>
+    <string name="default_text">что такое Android</string>
+    <string name="default_chips_text">Default Chips</string>
 </resources>
