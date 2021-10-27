@@ -2,7 +2,6 @@ package com.example.nasamaterial
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.nasa_photo.FragmentMain
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

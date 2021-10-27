@@ -1,4 +1,4 @@
-package com.example.nasa_photo
+package com.example.nasamaterial
 
 import androidx.lifecycle.ViewModel
 
