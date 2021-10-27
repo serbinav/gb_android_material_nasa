@@ -6,4 +6,5 @@ object Constants {
     const val SERVER_ERROR = "Ошибка сервера"
     const val REQUEST_ERROR = "Ошибка запроса на сервер"
     const val CORRUPTED_ERROR = "Неполные данные"
+    const val API_KEY = "CMPTmhNJqc69iYqq4Su55A00Kckd6Mmug0OuiZm5"
 }
