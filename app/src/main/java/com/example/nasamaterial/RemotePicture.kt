@@ -1,5 +1,6 @@
 package com.example.nasamaterial
 
+import com.example.nasamaterial.dto.NasaApodDTO
 import com.google.gson.GsonBuilder
 import retrofit2.Callback
 import retrofit2.Retrofit

@@ -1,4 +1,4 @@
-package com.example.nasamaterial
+package com.example.nasamaterial.dto
 
 data class NasaApodDTO(
     val copyright: String?,

@@ -1,4 +1,4 @@
-package com.example.nasamaterial
+package com.example.nasamaterial.ui
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -10,6 +10,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.nasamaterial.Constants
+import com.example.nasamaterial.viewModel.FragmentMainViewModel
+import com.example.nasamaterial.PictureLoadState
+import com.example.nasamaterial.R
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.squareup.picasso.Picasso
@@ -42,12 +46,12 @@ class FragmentMain : Fragment() {
 
         val btnFloatingChips: FloatingActionButton = view.findViewById(R.id.btn_floating_chips)
         btnFloatingChips.setOnClickListener {
-            activity?.let {
-                it.supportFragmentManager.beginTransaction()
-                    .add(R.id.container, FragmentChips.newInstance())
-                    .addToBackStack("")
-                    .commit()
-            }
+            requireActivity()
+                .supportFragmentManager.beginTransaction()
+                .add(R.id.container, FragmentChips.newInstance())
+                .addToBackStack("")
+                .commit()
+
         }
 
         setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))

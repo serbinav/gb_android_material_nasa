@@ -1,7 +1,11 @@
-package com.example.nasamaterial
+package com.example.nasamaterial.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.nasamaterial.Constants
+import com.example.nasamaterial.dto.NasaApodDTO
+import com.example.nasamaterial.PictureLoadState
+import com.example.nasamaterial.RemotePicture
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
