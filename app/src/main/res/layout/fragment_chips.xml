@@ -3,30 +3,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/default_margin">
 
     <com.google.android.material.chip.Chip
+        style="@style/Widget.MaterialComponents.Chip.Entry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/default_margin"
         android:text="@string/default_chips_text" />
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chip_group"
+    <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:text="@string/choice_theme" />
 
-        <com.google.android.material.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/default_margin"
-            android:text="@string/chips_yesterday" />
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_default"
+        style="@style/Widget.MaterialComponents.Chip.Action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/standart_text" />
 
-        <com.google.android.material.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/default_margin"
-            android:text="@string/chips_today" />
-    </com.google.android.material.chip.ChipGroup>
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_exotics_durability"
+        style="@style/Widget.MaterialComponents.Chip.Action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/exotics_durability_text" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_sea_wave"
+        style="@style/Widget.MaterialComponents.Chip.Action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sea_wave_text" />
 
 </LinearLayout>

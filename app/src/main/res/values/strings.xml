@@ -3,6 +3,8 @@
     <string name="default_hint">Поиск в википедии</string>
     <string name="default_text">что такое Android</string>
     <string name="default_chips_text">Default Chips</string>
-    <string name="chips_today">Сегодня</string>
-    <string name="chips_yesterday">Вчера</string>
+    <string name="standart_text">Дефолтная</string>
+    <string name="exotics_durability_text">Экзотика и прочность</string>
+    <string name="sea_wave_text">Морская волна</string>
+    <string name="choice_theme">Выбор темы:</string>
 </resources>

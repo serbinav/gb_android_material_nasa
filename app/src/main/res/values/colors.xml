@@ -4,7 +4,26 @@
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_100">#B2DFDB</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+<!--    ExoticsAndDurability-->
+    <color name="onyx">#0F1F38</color>
+    <color name="gray_brown">#8E7970</color>
+    <color name="fireworks">#F55449</color>
+    <color name="oceanic">#1B4B5A</color>
+
+<!--    SeaWave-->
+    <color name="deep_water">#003B46</color>
+    <color name="ocean">#07575B</color>
+    <color name="wave">#66A5AD</color>
+    <color name="sea_foam">#C4DFE6</color>
+
+<!--    GreenFog-->
+    <color name="forest">#04202C</color>
+    <color name="evergreen">#304040</color>
+    <color name="pine">#5B7065</color>
+    <color name="fog">#C9D1C8</color>
 </resources>
