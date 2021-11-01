@@ -10,4 +10,5 @@ object Constants {
     const val EARTH_FRAGMENT = 0
     const val MARS_FRAGMENT = 1
     const val WEATHER_FRAGMENT = 2
+    const val NASA_MARS_PHOTO = "mars-photos/api/v1/rovers/curiosity/photos"
 }
