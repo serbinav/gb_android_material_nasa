@@ -7,4 +7,7 @@ object Constants {
     const val REQUEST_ERROR = "Ошибка запроса на сервер"
     const val CORRUPTED_ERROR = "Неполные данные"
     const val API_KEY = "CMPTmhNJqc69iYqq4Su55A00Kckd6Mmug0OuiZm5"
+    const val EARTH_FRAGMENT = 0
+    const val MARS_FRAGMENT = 1
+    const val WEATHER_FRAGMENT = 2
 }
