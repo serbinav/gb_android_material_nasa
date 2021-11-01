@@ -6,9 +6,9 @@ import android.content.SharedPreferences
 class Storage(context: Context) {
 
     private val KEY = "KEY_THEME"
-    private var pref: SharedPreferences =
-        context.getSharedPreferences("app_theme", Context.MODE_PRIVATE)
-
+    private val pref: SharedPreferences by lazy {
+        context.getSharedPreferences("app_theme", Context.MODE_PRIVATE)}
+    
     fun getTheme(): Int {
         return pref.getInt(KEY, 0)
     }
