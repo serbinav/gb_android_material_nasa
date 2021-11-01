@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity(), FragmentChips.OnThemeChanged {
         setContentView(R.layout.activity_main)
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, FragmentMain.newInstance())
+            .replace(R.id.container, FragmentMain())
             .commitNow()
     }
 

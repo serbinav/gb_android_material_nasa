@@ -15,15 +15,12 @@ import com.example.nasamaterial.Constants
 import com.example.nasamaterial.viewModel.FragmentMainViewModel
 import com.example.nasamaterial.PictureLoadState
 import com.example.nasamaterial.R
+import com.example.nasamaterial.dto.NasaApodDTO
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.squareup.picasso.Picasso
 
 class FragmentMain : Fragment() {
-
-    companion object {
-        fun newInstance() = FragmentMain()
-    }
 
     private val viewModel: FragmentMainViewModel by lazy {
         ViewModelProvider(this).get(FragmentMainViewModel::class.java)
@@ -70,30 +67,32 @@ class FragmentMain : Fragment() {
 
     private fun renderData(state: PictureLoadState, view: View) {
         when (state) {
-            is PictureLoadState.Success -> {
+            is PictureLoadState.Success<*> -> {
                 val serverResponseData = state.nasaData
-                val url = serverResponseData.url
-                if (url.isNullOrEmpty()) {
-                    //showError("Сообщение, что ссылка пустая")
-                    Toast.makeText(requireContext(), "Link is empty", Toast.LENGTH_LONG).show()
-                } else {
-                    //showSuccess()
-                    val bottomSheetTitle: TextView =
-                        view.findViewById(R.id.bottom_sheet_description_header)
-                    bottomSheetTitle.text = serverResponseData.title
-
-                    val bottomSheetExplanation: TextView =
-                        view.findViewById(R.id.bottom_sheet_description)
-                    bottomSheetExplanation.text = serverResponseData.explanation
-
-                    val img: AppCompatImageView = view.findViewById(R.id.img)
-                    if (serverResponseData.media_type.equals("video")) {
-                        img.setImageResource(R.drawable.ic_camera_recorder_no_video)
+                if (serverResponseData is NasaApodDTO) {
+                    val url = serverResponseData.url
+                    if (url.isNullOrEmpty()) {
+                        //showError("Сообщение, что ссылка пустая")
+                        Toast.makeText(requireContext(), "Link is empty", Toast.LENGTH_LONG).show()
                     } else {
-                        Picasso
-                            .get()
-                            .load(url)
-                            .into(img)
+                        //showSuccess()
+                        val bottomSheetTitle: TextView =
+                            view.findViewById(R.id.bottom_sheet_description_header)
+                        bottomSheetTitle.text = serverResponseData.title
+
+                        val bottomSheetExplanation: TextView =
+                            view.findViewById(R.id.bottom_sheet_description)
+                        bottomSheetExplanation.text = serverResponseData.explanation
+
+                        val img: AppCompatImageView = view.findViewById(R.id.img)
+                        if (serverResponseData.media_type.equals("video")) {
+                            img.setImageResource(R.drawable.ic_camera_recorder_no_video)
+                        } else {
+                            Picasso
+                                .get()
+                                .load(url)
+                                .into(img)
+                        }
                     }
                 }
             }

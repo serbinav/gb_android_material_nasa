@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.example.nasamaterial.Constants
 
-class ViewPagerAdapter(private val fragmentManager: FragmentManager) :
+class ViewPagerAdapter(fragmentManager: FragmentManager) :
     FragmentStatePagerAdapter(fragmentManager) {
 
     private val fragments = arrayOf(FragmentEarth(), FragmentMars(), FragmentWeather())
@@ -21,7 +21,7 @@ class ViewPagerAdapter(private val fragmentManager: FragmentManager) :
         }
     }
 
-    override fun getPageTitle(position: Int): CharSequence? {
+    override fun getPageTitle(position: Int): CharSequence {
         return when(position){
             1 -> "Марс"
             2 -> "Погода"
