@@ -1,5 +1,6 @@
 package com.example.nasamaterial.ui
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -37,10 +38,6 @@ class FragmentMain : Fragment() {
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -58,6 +55,12 @@ class FragmentMain : Fragment() {
 
         viewModel.detailsLiveData.observe(viewLifecycleOwner) { renderData(it, view) }
         viewModel.getPharmaFromRemoteSource(Constants.API_KEY)
+
+        val btnTab: FloatingActionButton = view.findViewById(R.id.btn_tab)
+        btnTab.setOnClickListener {
+            val intent = Intent(requireContext(), PagerActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
