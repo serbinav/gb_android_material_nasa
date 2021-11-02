@@ -3,6 +3,7 @@ package com.example.nasamaterial
 import com.example.nasamaterial.dto.NasaApodDTO
 import com.example.nasamaterial.dto.NasaMarsDTO
 import com.google.gson.GsonBuilder
+import okhttp3.ResponseBody
 import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -22,5 +23,9 @@ class RemotePicture {
 
     fun getMarsPhotos(apiKey: String, callback: Callback<NasaMarsDTO>) {
         pharmaAPI.getMarsPicture(apiKey = apiKey).enqueue(callback)
+    }
+
+    fun getEarthPhotos(apiKey: String, callback: Callback<ResponseBody>) {
+        pharmaAPI.getEarthPicture(apiKey = apiKey).enqueue(callback)
     }
 }
