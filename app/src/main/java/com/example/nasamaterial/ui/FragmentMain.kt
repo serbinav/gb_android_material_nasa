@@ -51,7 +51,7 @@ class FragmentMain : Fragment() {
         setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
 
         viewModel.detailsLiveData.observe(viewLifecycleOwner) { renderData(it, view) }
-        viewModel.getPharmaFromRemoteSource(Constants.API_KEY)
+        viewModel.getRemoteSource(Constants.API_KEY)
 
         val btnTab: FloatingActionButton = view.findViewById(R.id.btn_tab)
         btnTab.setOnClickListener {

@@ -32,7 +32,7 @@ class FragmentMars : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.detailsLiveData.observe(viewLifecycleOwner) { renderData(it, view) }
-        viewModel.getPharmaFromRemoteSource(Constants.API_KEY)
+        viewModel.getRemoteSource(Constants.API_KEY)
     }
 
     private fun renderData(state: PictureLoadState, view: View) {
