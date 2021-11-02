@@ -3,39 +3,40 @@ package com.example.nasamaterial.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.nasamaterial.Constants
-import com.example.nasamaterial.dto.NasaApodDTO
 import com.example.nasamaterial.PictureLoadState
 import com.example.nasamaterial.RemotePicture
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import okhttp3.ResponseBody
 
-class FragmentMainViewModel(
+class FragmentEarthViewModel(
     val detailsLiveData: MutableLiveData<PictureLoadState> = MutableLiveData(),
     private val detailsRepository: RemotePicture = RemotePicture(),
 ) : ViewModel() {
 
     fun getRemoteSource(apiKey: String) {
         detailsLiveData.value = PictureLoadState.Loading
-        detailsRepository.getPictureOfTheDay(apiKey, callback)
+        detailsRepository.getEarthPhotos(apiKey, callback)
     }
 
-    private val callback = object : Callback<NasaApodDTO> {
+    private val callback = object : Callback<ResponseBody> {
         override fun onResponse(
-            call: Call<NasaApodDTO>,
-            response: Response<NasaApodDTO>
+            call: Call<ResponseBody>,
+            response: Response<ResponseBody>
         ) {
-            val serverResponse: NasaApodDTO? = response.body()
             detailsLiveData.postValue(
-                if (response.isSuccessful && serverResponse != null) {
-                    checkResponse(serverResponse)
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        PictureLoadState.Success(it)
+                    }
                 } else {
                     PictureLoadState.Error(Throwable(Constants.SERVER_ERROR))
                 }
             )
         }
 
-        override fun onFailure(call: Call<NasaApodDTO>, t: Throwable) {
+        override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
             detailsLiveData.postValue(
                 PictureLoadState.Error(
                     Throwable(
@@ -45,14 +46,6 @@ class FragmentMainViewModel(
             )
         }
     }
-
-    fun checkResponse(serverResponse: NasaApodDTO): PictureLoadState {
-        serverResponse.apply {
-            return if (url == null) {
-                PictureLoadState.Error(Throwable(Constants.CORRUPTED_ERROR))
-            } else {
-                PictureLoadState.Success(serverResponse)
-            }
-        }
-    }
 }
+
+

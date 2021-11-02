@@ -1,12 +1,14 @@
 package com.example.nasamaterial
 
 import com.example.nasamaterial.dto.NasaApodDTO
+import com.example.nasamaterial.dto.NasaMarsDTO
 import com.google.gson.GsonBuilder
+import okhttp3.ResponseBody
 import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RemotePicture{
+class RemotePicture {
     private val pharmaAPI = Retrofit.Builder()
         .baseUrl(Constants.NASA_API_GOV)
         .addConverterFactory(
@@ -15,7 +17,15 @@ class RemotePicture{
             )
         ).build().create(NasaAPI::class.java)
 
-    fun getPictureOfTheDay(apiKey: String, callback: Callback<NasaApodDTO>){
+    fun getPictureOfTheDay(apiKey: String, callback: Callback<NasaApodDTO>) {
         pharmaAPI.getAstronomyPictureOfTheDay(apiKey).enqueue(callback)
+    }
+
+    fun getMarsPhotos(apiKey: String, callback: Callback<NasaMarsDTO>) {
+        pharmaAPI.getMarsPicture(apiKey = apiKey).enqueue(callback)
+    }
+
+    fun getEarthPhotos(apiKey: String, callback: Callback<ResponseBody>) {
+        pharmaAPI.getEarthPicture(apiKey = apiKey).enqueue(callback)
     }
 }
