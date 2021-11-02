@@ -15,7 +15,7 @@ class FragmentMainViewModel(
     private val detailsRepository: RemotePicture = RemotePicture(),
 ) : ViewModel() {
 
-    fun getPharmaFromRemoteSource(apiKey: String) {
+    fun getRemoteSource(apiKey: String) {
         detailsLiveData.value = PictureLoadState.Loading
         detailsRepository.getPictureOfTheDay(apiKey, callback)
     }
