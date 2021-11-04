@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -7,35 +8,149 @@
     android:padding="@dimen/default_margin">
 
     <com.google.android.material.chip.Chip
+        android:id="@+id/chip_default"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/default_chips_text"
+        app:layout_constraintEnd_toStartOf="@+id/chip_entry"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_entry"
         style="@style/Widget.MaterialComponents.Chip.Entry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/default_chips_text" />
+        android:text="@string/entry_chips_text"
+        app:layout_constraintEnd_toStartOf="@+id/chip_choice"
+        app:layout_constraintStart_toEndOf="@+id/chip_default"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_choice"
+        style="@style/Widget.MaterialComponents.Chip.Choice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choice_chips_text"
+        app:layout_constraintEnd_toStartOf="@+id/chip_filter"
+        app:layout_constraintStart_toEndOf="@+id/chip_entry"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_filter"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/filter_chips_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/chip_choice"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:chipBackgroundColor="@color/sea_foam"
+        android:text="@string/background_chips_text"
+        app:layout_constraintEnd_toStartOf="@id/chip_ripple"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chip_default" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_ripple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ripple_chips_text"
+        app:rippleColor="@color/teal_200"
+        app:layout_constraintEnd_toStartOf="@id/chip_icon"
+        app:layout_constraintStart_toEndOf="@id/chip_background"
+        app:layout_constraintTop_toBottomOf="@+id/chip_default" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/icon_chips_text"
+        app:iconStartPadding="@dimen/default_margin"
+        app:chipIcon="@drawable/ic_baseline_block_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/chip_ripple"
+        app:layout_constraintTop_toBottomOf="@+id/chip_default" />
 
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/choose_one_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/choice_theme" />
+        android:text="@string/choose_one_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chip_background" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_one_text_view">
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/choice_one" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/choice_two" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/choice_three" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/material_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choice_theme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chip_group" />
 
     <com.google.android.material.chip.Chip
-        android:id="@+id/chip_default"
+        android:id="@+id/chip_default_theme"
         style="@style/Widget.MaterialComponents.Chip.Action"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/standart_text" />
+        android:text="@string/standart_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/material_text_view" />
 
     <com.google.android.material.chip.Chip
-        android:id="@+id/chip_exotics_durability"
+        android:id="@+id/chip_exotics_durability_theme"
         style="@style/Widget.MaterialComponents.Chip.Action"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/exotics_durability_text" />
+        android:text="@string/exotics_durability_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chip_default_theme" />
 
     <com.google.android.material.chip.Chip
-        android:id="@+id/chip_sea_wave"
+        android:id="@+id/chip_sea_wave_theme"
         style="@style/Widget.MaterialComponents.Chip.Action"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/sea_wave_text" />
+        android:text="@string/sea_wave_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chip_exotics_durability_theme" />
 
-</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

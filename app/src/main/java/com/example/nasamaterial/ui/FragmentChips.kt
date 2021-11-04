@@ -46,17 +46,17 @@ class FragmentChips : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val chipDefault: Chip = view.findViewById(R.id.chip_default)
+        val chipDefault: Chip = view.findViewById(R.id.chip_default_theme)
         chipDefault.setOnClickListener {
             onThemeChanged.onThemeChanged(0)
         }
 
-        val chipExoticsDurability: Chip = view.findViewById(R.id.chip_exotics_durability)
+        val chipExoticsDurability: Chip = view.findViewById(R.id.chip_exotics_durability_theme)
         chipExoticsDurability.setOnClickListener {
             onThemeChanged.onThemeChanged(1)
         }
 
-        val chipSeaWave: Chip = view.findViewById(R.id.chip_sea_wave)
+        val chipSeaWave: Chip = view.findViewById(R.id.chip_sea_wave_theme)
         chipSeaWave.setOnClickListener {
             onThemeChanged.onThemeChanged(2)
         }

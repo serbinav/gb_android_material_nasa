@@ -2,9 +2,19 @@
     <string name="app_name">Nasa Material</string>
     <string name="default_hint">Поиск в википедии</string>
     <string name="default_text">что такое Android</string>
-    <string name="default_chips_text">Default Chips</string>
     <string name="standart_text">Дефолтная</string>
     <string name="exotics_durability_text">Экзотика и прочность</string>
     <string name="sea_wave_text">Морская волна</string>
     <string name="choice_theme">Выбор темы:</string>
+    <string name="default_chips_text">Default</string>
+    <string name="entry_chips_text">Entry</string>
+    <string name="choice_chips_text">Choice</string>
+    <string name="filter_chips_text">Filter</string>
+    <string name="background_chips_text">Background</string>
+    <string name="ripple_chips_text">Ripple</string>
+    <string name="icon_chips_text">Icon</string>
+    <string name="choose_one_text">Выбрать одну</string>
+    <string name="choice_one">Первый</string>
+    <string name="choice_two">Второй</string>
+    <string name="choice_three">Третий</string>
 </resources>
