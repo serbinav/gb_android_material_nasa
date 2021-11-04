@@ -5,4 +5,5 @@
     <dimen name="fab_bottom_margin">60dp</dimen>
     <dimen name="stroke_width_default">2dp</dimen>
     <dimen name="stroke_width_focused">3dp</dimen>
+    <dimen name="constraint_circle_radius">65dp</dimen>
 </resources>

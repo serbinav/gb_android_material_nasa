@@ -17,4 +17,5 @@
     <string name="choice_one">Первый</string>
     <string name="choice_two">Второй</string>
     <string name="choice_three">Третий</string>
+    <string name="noname_text">Безымянный чипс</string>
 </resources>
