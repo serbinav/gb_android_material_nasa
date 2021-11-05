@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    android:padding="@dimen/default_margin">
+    android:padding="@dimen/default_margin"
+    app:layoutDescription="@xml/motion_scene">
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_default"
@@ -15,7 +16,7 @@
         app:layout_constraintEnd_toStartOf="@+id/chip_entry"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintWidth_percent="0.25" />
 
     <com.google.android.material.chip.Chip
@@ -26,7 +27,7 @@
         android:text="@string/entry_chips_text"
         app:layout_constraintEnd_toStartOf="@+id/chip_choice"
         app:layout_constraintStart_toEndOf="@+id/chip_default"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="parent" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_choice"
@@ -36,7 +37,7 @@
         android:text="@string/choice_chips_text"
         app:layout_constraintEnd_toStartOf="@+id/chip_filter"
         app:layout_constraintStart_toEndOf="@+id/chip_entry"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="parent"/>
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_filter"
@@ -46,7 +47,7 @@
         android:text="@string/filter_chips_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/chip_choice"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="parent"/>
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_background"
@@ -93,6 +94,7 @@
         android:id="@+id/chip_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/choose_one_text_view">
@@ -130,7 +132,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/standart_text"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/material_text_view" />
 
     <androidx.constraintlayout.widget.Group
@@ -148,7 +150,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/exotics_durability_text"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chip_default_theme" />
 
     <com.google.android.material.chip.Chip
@@ -157,7 +159,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sea_wave_text"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chip_exotics_durability_theme" />
 
     <androidx.constraintlayout.widget.Barrier
@@ -172,7 +174,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/noname_text"
-        app:layout_constraintStart_toEndOf="@id/barrier"
+        app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/material_text_view" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -181,8 +183,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
         android:text="@string/click_here"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>

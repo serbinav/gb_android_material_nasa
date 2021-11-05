@@ -35,7 +35,7 @@ class FragmentChips : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_chips, container, false)
+        return inflater.inflate(R.layout.fragment_chips_start, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

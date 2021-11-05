@@ -18,4 +18,5 @@
     <string name="choice_two">Второй</string>
     <string name="choice_three">Третий</string>
     <string name="noname_text">Безымянный чипс</string>
+    <string name="click_here">Для отображения Чипсов нажмите сюда</string>
 </resources>
