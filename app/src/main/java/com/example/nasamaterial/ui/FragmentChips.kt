@@ -17,10 +17,6 @@ class FragmentChips : Fragment() {
         fun onThemeChanged(theme: Int)
     }
 
-    companion object {
-        fun newInstance() = FragmentChips()
-    }
-
     private lateinit var viewModel: FragmentChipsViewModel
     private lateinit var onThemeChanged: OnThemeChanged
 

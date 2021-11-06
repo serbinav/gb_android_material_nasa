@@ -42,10 +42,9 @@ class FragmentMain : Fragment() {
         btnFloatingChips.setOnClickListener {
             requireActivity()
                 .supportFragmentManager.beginTransaction()
-                .add(R.id.container, FragmentChips.newInstance())
+                .add(R.id.container, FragmentChips())
                 .addToBackStack("")
                 .commit()
-
         }
 
         setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
@@ -57,6 +56,15 @@ class FragmentMain : Fragment() {
         btnTab.setOnClickListener {
             val intent = Intent(requireContext(), PagerActivity::class.java)
             startActivity(intent)
+        }
+
+        val btnMountains: FloatingActionButton = view.findViewById(R.id.btn_mountains)
+        btnMountains.setOnClickListener {
+            requireActivity()
+                .supportFragmentManager.beginTransaction()
+                .add(R.id.container, FragmentCollapsingToolbar())
+                .addToBackStack("")
+                .commit()
         }
     }
 
