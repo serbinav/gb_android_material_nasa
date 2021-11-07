@@ -21,6 +21,8 @@
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:title="@string/app_name">
+            <!--scroll|snap -->
+            <!--scroll|enterAlways-->
 
             <ImageView
                 android:id="@+id/main.backdrop"
