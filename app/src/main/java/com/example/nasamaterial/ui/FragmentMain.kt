@@ -60,11 +60,8 @@ class FragmentMain : Fragment() {
 
         val btnMountains: FloatingActionButton = view.findViewById(R.id.btn_mountains)
         btnMountains.setOnClickListener {
-            requireActivity()
-                .supportFragmentManager.beginTransaction()
-                .add(R.id.container, FragmentCollapsingToolbar())
-                .addToBackStack("")
-                .commit()
+            val intent = Intent(requireContext(), CollapsingToolbarActivity::class.java)
+            startActivity(intent)
         }
     }
 
