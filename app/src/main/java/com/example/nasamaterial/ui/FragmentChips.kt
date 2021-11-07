@@ -17,10 +17,6 @@ class FragmentChips : Fragment() {
         fun onThemeChanged(theme: Int)
     }
 
-    companion object {
-        fun newInstance() = FragmentChips()
-    }
-
     private lateinit var viewModel: FragmentChipsViewModel
     private lateinit var onThemeChanged: OnThemeChanged
 
@@ -35,7 +31,7 @@ class FragmentChips : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_chips, container, false)
+        return inflater.inflate(R.layout.fragment_chips_start, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -46,17 +42,17 @@ class FragmentChips : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val chipDefault: Chip = view.findViewById(R.id.chip_default)
+        val chipDefault: Chip = view.findViewById(R.id.chip_default_theme)
         chipDefault.setOnClickListener {
             onThemeChanged.onThemeChanged(0)
         }
 
-        val chipExoticsDurability: Chip = view.findViewById(R.id.chip_exotics_durability)
+        val chipExoticsDurability: Chip = view.findViewById(R.id.chip_exotics_durability_theme)
         chipExoticsDurability.setOnClickListener {
             onThemeChanged.onThemeChanged(1)
         }
 
-        val chipSeaWave: Chip = view.findViewById(R.id.chip_sea_wave)
+        val chipSeaWave: Chip = view.findViewById(R.id.chip_sea_wave_theme)
         chipSeaWave.setOnClickListener {
             onThemeChanged.onThemeChanged(2)
         }
