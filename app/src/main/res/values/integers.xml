@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="constraint_circle_angle">315</integer>
-    <integer name="constraint_circle">360</integer>
+    <integer name="circle_angle_tab">315</integer>
+    <integer name="circle_angle_mountains">360</integer>
+    <integer name="circle_angle_chips">270</integer>
 </resources>
