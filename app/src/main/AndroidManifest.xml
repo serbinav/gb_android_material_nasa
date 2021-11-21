@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NasaMaterial">
         <activity
-            android:name=".RecyclerActivity"
+            android:name=".ui.RecyclerActivity"
             android:exported="false" />
         <activity
             android:name=".ui.CollapsingToolbarActivity"

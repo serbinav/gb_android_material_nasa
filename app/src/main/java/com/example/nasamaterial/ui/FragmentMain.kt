@@ -135,11 +135,16 @@ class FragmentMain : Fragment() {
 
         setBottomSheetBehavior(binding.bottomSheet.bottomSheetContainer)
 
-        viewModel.detailsLiveData.observe(viewLifecycleOwner) { renderData(it, view) }
+        viewModel.detailsLiveData.observe(viewLifecycleOwner) { renderData(it) }
         viewModel.getRemoteSource(Constants.API_KEY)
 
         binding.btnTab.setOnClickListener {
             val intent = Intent(requireContext(), PagerActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.iconRecyclerview.setOnClickListener {
+            val intent = Intent(requireContext(), RecyclerActivity::class.java)
             startActivity(intent)
         }
     }
@@ -149,7 +154,7 @@ class FragmentMain : Fragment() {
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
     }
 
-    private fun renderData(state: PictureLoadState, view: View) {
+    private fun renderData(state: PictureLoadState) {
         when (state) {
             is PictureLoadState.Success<*> -> {
                 val serverResponseData = state.nasaData
