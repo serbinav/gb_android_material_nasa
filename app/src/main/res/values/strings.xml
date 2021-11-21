@@ -20,4 +20,7 @@
     <string name="noname_text">Безымянный чипс</string>
     <string name="click_here">Для отображения Чипсов нажмите сюда</string>
     <string name="clouds_hills_trees">Облака холмы деревья пейзаж</string>
+    <string name="item_view_header">Заметка</string>
+    <string name="item_view_body">Инфо</string>
+    <string name="item_edit_header">Писать тут</string>
 </resources>
