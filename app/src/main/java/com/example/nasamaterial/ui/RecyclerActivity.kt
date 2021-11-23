@@ -15,13 +15,8 @@ class RecyclerActivity : AppCompatActivity() {
         binding = ActivityRecyclerBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val data = arrayListOf(
-            DataNote("ConstraintSet"),
             DataNote("Animated Vector Drawable"),
-            DataNote("CollapsingToolbarLayout", ""),
-            DataNote("Other"),
-            DataNote("Other"),
-            DataNote("Other"),
-            DataNote("Guideline", null)
+            DataNote("CollapsingToolbarLayout", "")
         )
         data.add(0, DataNote("Header"))
         binding.recyclerView.adapter = RecyclerActivityAdapter(

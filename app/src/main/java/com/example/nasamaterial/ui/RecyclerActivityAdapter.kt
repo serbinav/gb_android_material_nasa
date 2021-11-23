@@ -11,7 +11,7 @@ import com.example.nasamaterial.databinding.RecyclerItemViewBinding
 
 class RecyclerActivityAdapter(
     private var onListItemClickListener: OnListItemClickListener,
-    private var data: List<DataNote>
+    private var data: MutableList<DataNote>
 ) :
     RecyclerView.Adapter<BaseViewHolder>() {
 
@@ -49,6 +49,8 @@ class RecyclerActivityAdapter(
     inner class WatchViewHolder(private val binding: RecyclerItemViewBinding) :
         BaseViewHolder(binding.root) {
         override fun bind(data: DataNote) {
+            binding.addItem.setOnClickListener { addItem() }
+            binding.deleteItem.setOnClickListener { removeItem() }
             if (layoutPosition != RecyclerView.NO_POSITION) {
                 binding.header.text = data.someText
                 binding.descriptionTextView.text = data.someDescription
@@ -59,12 +61,34 @@ class RecyclerActivityAdapter(
                 }
             }
         }
+
+        private fun addItem() {
+            data.add(layoutPosition, DataNote("Inject"))
+            notifyItemInserted(layoutPosition)
+        }
+
+        private fun removeItem() {
+            data.removeAt(layoutPosition)
+            notifyItemRemoved(layoutPosition)
+        }
     }
 
     inner class EditViewHolder(private val binding: RecyclerItemEditBinding) :
         BaseViewHolder(binding.root) {
         override fun bind(data: DataNote) {
             binding.editImageView.setOnClickListener { onListItemClickListener.onItemClick(data) }
+            binding.addItem.setOnClickListener { addItem() }
+            binding.deleteItem.setOnClickListener { removeItem() }
+        }
+
+        private fun addItem() {
+            data.add(layoutPosition, DataNote("Autowired", ""))
+            notifyItemInserted(layoutPosition)
+        }
+
+        private fun removeItem() {
+            data.removeAt(layoutPosition)
+            notifyItemRemoved(layoutPosition)
         }
     }
 
