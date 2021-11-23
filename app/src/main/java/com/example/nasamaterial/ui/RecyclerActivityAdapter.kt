@@ -22,7 +22,7 @@ class RecyclerActivityAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return when (viewType) {
-            TYPE_VIEW -> ViewViewHolder(
+            TYPE_VIEW -> WatchViewHolder(
                 RecyclerItemViewBinding.inflate(inflater, parent, false)
             )
             TYPE_EDIT -> EditViewHolder(
@@ -46,10 +46,11 @@ class RecyclerActivityAdapter(
         }
     }
 
-    inner class ViewViewHolder(private val binding: RecyclerItemViewBinding) :
+    inner class WatchViewHolder(private val binding: RecyclerItemViewBinding) :
         BaseViewHolder(binding.root) {
         override fun bind(data: DataNote) {
             if (layoutPosition != RecyclerView.NO_POSITION) {
+                binding.header.text = data.someText
                 binding.descriptionTextView.text = data.someDescription
                 binding.logoImageView.setOnClickListener {
                     onListItemClickListener.onItemClick(
