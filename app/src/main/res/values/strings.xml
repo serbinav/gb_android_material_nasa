@@ -23,4 +23,5 @@
     <string name="item_view_header">Заметка</string>
     <string name="item_view_body">Инфо</string>
     <string name="item_edit_header">Писать тут</string>
+    <string name="item_header_text">Заголовок</string>
 </resources>
