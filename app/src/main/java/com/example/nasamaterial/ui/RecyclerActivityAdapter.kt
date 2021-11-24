@@ -51,10 +51,12 @@ class RecyclerActivityAdapter(
         override fun bind(data: DataNote) {
             binding.addItem.setOnClickListener { addItem() }
             binding.deleteItem.setOnClickListener { removeItem() }
+            binding.downItem.setOnClickListener { moveDown() }
+            binding.upItem.setOnClickListener { moveUp() }
             if (layoutPosition != RecyclerView.NO_POSITION) {
                 binding.header.text = data.someText
                 binding.descriptionTextView.text = data.someDescription
-                binding.logoImageView.setOnClickListener {
+                binding.searchItem.setOnClickListener {
                     onListItemClickListener.onItemClick(
                         data
                     )
@@ -71,6 +73,24 @@ class RecyclerActivityAdapter(
             data.removeAt(layoutPosition)
             notifyItemRemoved(layoutPosition)
         }
+
+        private fun moveUp() {
+            layoutPosition.takeIf { it > 1 }?.also { currentPosition ->
+                data.removeAt(currentPosition).apply {
+                    data.add(currentPosition - 1, this)
+                }
+                notifyItemMoved(currentPosition, currentPosition - 1)
+            }
+        }
+
+        private fun moveDown() {
+            layoutPosition.takeIf { it < data.size - 1 }?.also { currentPosition ->
+                data.removeAt(currentPosition).apply {
+                    data.add(currentPosition + 1, this)
+                }
+                notifyItemMoved(currentPosition, currentPosition + 1)
+            }
+        }
     }
 
     inner class EditViewHolder(private val binding: RecyclerItemEditBinding) :
@@ -79,6 +99,8 @@ class RecyclerActivityAdapter(
             binding.editImageView.setOnClickListener { onListItemClickListener.onItemClick(data) }
             binding.addItem.setOnClickListener { addItem() }
             binding.deleteItem.setOnClickListener { removeItem() }
+            binding.downItem.setOnClickListener { moveDown() }
+            binding.upItem.setOnClickListener { moveUp() }
         }
 
         private fun addItem() {
@@ -89,6 +111,24 @@ class RecyclerActivityAdapter(
         private fun removeItem() {
             data.removeAt(layoutPosition)
             notifyItemRemoved(layoutPosition)
+        }
+
+        private fun moveUp() {
+            layoutPosition.takeIf { it > 1 }?.also { currentPosition ->
+                data.removeAt(currentPosition).apply {
+                    data.add(currentPosition - 1, this)
+                }
+                notifyItemMoved(currentPosition, currentPosition - 1)
+            }
+        }
+
+        private fun moveDown() {
+            layoutPosition.takeIf { it < data.size - 1 }?.also { currentPosition ->
+                data.removeAt(currentPosition).apply {
+                    data.add(currentPosition + 1, this)
+                }
+                notifyItemMoved(currentPosition, currentPosition + 1)
+            }
         }
     }
 

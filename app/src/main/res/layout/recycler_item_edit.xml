@@ -13,7 +13,7 @@
         app:srcCompat="@drawable/ic_baseline_edit_note_50" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/item_edit_header"
         android:textColor="@color/purple_700"
@@ -21,6 +21,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/edit_image_view"
         app:layout_constraintStart_toEndOf="@+id/edit_image_view"
+        app:layout_constraintEnd_toStartOf="@+id/up_item"
         app:layout_constraintTop_toTopOf="@+id/edit_image_view" />
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -40,6 +41,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:srcCompat="@drawable/ic_baseline_delete_outline_24" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/up_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        app:layout_constraintEnd_toStartOf="@id/add_item"
+        app:layout_constraintBottom_toBottomOf="@id/add_item"
+        app:srcCompat="@drawable/ic_baseline_arrow_upward_24" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/down_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        app:layout_constraintEnd_toStartOf="@id/delete_item"
+        app:layout_constraintTop_toTopOf="@id/add_item"
+        app:layout_constraintBottom_toBottomOf="@id/delete_item"
+        app:srcCompat="@drawable/ic_baseline_arrow_downward_24" />
 
     <View
         android:layout_width="match_parent"
