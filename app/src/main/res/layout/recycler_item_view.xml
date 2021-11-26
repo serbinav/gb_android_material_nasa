@@ -78,9 +78,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/add_item"
         app:layout_constraintEnd_toStartOf="@id/add_item"
         app:layout_constraintTop_toTopOf="@id/search_item"
-        app:layout_constraintBottom_toBottomOf="@id/add_item"
         app:srcCompat="@drawable/ic_baseline_arrow_upward_24" />
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -88,9 +88,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/delete_item"
         app:layout_constraintEnd_toStartOf="@id/delete_item"
         app:layout_constraintTop_toTopOf="@id/add_item"
-        app:layout_constraintBottom_toBottomOf="@id/delete_item"
         app:srcCompat="@drawable/ic_baseline_arrow_downward_24" />
 
     <androidx.constraintlayout.widget.Barrier

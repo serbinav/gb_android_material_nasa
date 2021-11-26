@@ -53,6 +53,8 @@ class RecyclerActivityAdapter(
             binding.deleteItem.setOnClickListener { removeItem() }
             binding.downItem.setOnClickListener { moveDown() }
             binding.upItem.setOnClickListener { moveUp() }
+            binding.header.setOnClickListener { toggleText() }
+            binding.descriptionTextView.setOnClickListener { toggleText() }
             if (layoutPosition != RecyclerView.NO_POSITION) {
                 binding.header.text = data.someText
                 binding.descriptionTextView.text = data.someDescription
@@ -65,7 +67,7 @@ class RecyclerActivityAdapter(
         }
 
         private fun addItem() {
-            data.add(layoutPosition, DataNote("Inject"))
+            data.add(layoutPosition, DataNote("Inject", "some text"))
             notifyItemInserted(layoutPosition)
         }
 
@@ -90,6 +92,18 @@ class RecyclerActivityAdapter(
                 }
                 notifyItemMoved(currentPosition, currentPosition + 1)
             }
+        }
+
+        private fun toggleText() {
+            data.removeAt(layoutPosition)
+            data.add(
+                layoutPosition,
+                DataNote(
+                    binding.descriptionTextView.text.toString(),
+                    binding.header.text.toString()
+                )
+            )
+            notifyItemChanged(layoutPosition)
         }
     }
 
