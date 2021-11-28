@@ -60,7 +60,7 @@ class RecyclerActivityAdapter(
             if (layoutPosition != RecyclerView.NO_POSITION) {
                 binding.header.text = data.someText
                 binding.descriptionTextView.text = data.someDescription
-                binding.searchItem.setOnClickListener {
+                binding.saveItem.setOnClickListener {
                     onListItemClickListener.onItemClick(
                         data
                     )
