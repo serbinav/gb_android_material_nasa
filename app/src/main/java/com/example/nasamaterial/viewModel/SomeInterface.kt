@@ -1,5 +1,6 @@
 package com.example.nasamaterial.viewModel
 
+import androidx.recyclerview.widget.RecyclerView
 import com.example.nasamaterial.DataNote
 
 class SomeInterface {
@@ -16,5 +17,9 @@ class SomeInterface {
     interface ItemTouchHelperViewHolder {
         fun onItemSelected()
         fun onItemClear()
+    }
+
+    interface OnStartDragListener {
+        fun onStartDrag(viewHolder: RecyclerView.ViewHolder)
     }
 }

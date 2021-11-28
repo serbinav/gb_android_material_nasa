@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.example.nasamaterial.DataNote
 import com.example.nasamaterial.databinding.ActivityRecyclerBinding
 import com.example.nasamaterial.viewModel.SomeInterface
@@ -29,7 +30,12 @@ class RecyclerActivity : AppCompatActivity() {
                     Toast.makeText(this@RecyclerActivity, data.someText, Toast.LENGTH_SHORT).show()
                 }
             },
-            data
+            data,
+            object : SomeInterface.OnStartDragListener {
+                override fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {
+                    itemTouchHelper.startDrag(viewHolder)
+                }
+            }
         )
 
         binding.recyclerView.adapter = adapter

@@ -1,6 +1,7 @@
 package com.example.nasamaterial.ui
 
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +14,8 @@ import com.example.nasamaterial.viewModel.SomeInterface
 
 class RecyclerActivityAdapter(
     private var onListItemClickListener: SomeInterface.OnListItemClickListener,
-    private var data: MutableList<DataNote>
+    private var data: MutableList<DataNote>,
+    private val dragListener: SomeInterface.OnStartDragListener
 ) :
     RecyclerView.Adapter<BaseViewHolder>(), SomeInterface.ItemTouchHelperAdapter {
 
@@ -66,6 +68,12 @@ class RecyclerActivityAdapter(
                     )
                 }
             }
+            binding.dragHandleImageView.setOnTouchListener { _, event ->
+                if (event.actionMasked == MotionEvent.ACTION_DOWN) {
+                    dragListener.onStartDrag(this)
+                }
+                false
+            }
         }
 
         private fun addItem() {
@@ -117,6 +125,12 @@ class RecyclerActivityAdapter(
             binding.deleteItem.setOnClickListener { removeItem() }
             binding.downItem.setOnClickListener { moveDown() }
             binding.upItem.setOnClickListener { moveUp() }
+            binding.dragHandleImageView.setOnTouchListener { _, event ->
+                if (event.actionMasked == MotionEvent.ACTION_DOWN) {
+                    dragListener.onStartDrag(this)
+                }
+                false
+            }
         }
 
         private fun addItem() {
@@ -210,7 +224,8 @@ class RecyclerActivityAdapter(
         data.removeAt(fromPosition).apply {
             data.add(if (toPosition > fromPosition) toPosition - 1 else toPosition, this)
         }
-        notifyItemMoved(fromPosition, toPosition)    }
+        notifyItemMoved(fromPosition, toPosition)
+    }
 
     override fun onItemDismiss(position: Int) {
         data.removeAt(position)
