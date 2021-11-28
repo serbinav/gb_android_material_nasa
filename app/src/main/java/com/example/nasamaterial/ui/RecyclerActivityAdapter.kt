@@ -62,11 +62,6 @@ class RecyclerActivityAdapter(
             if (layoutPosition != RecyclerView.NO_POSITION) {
                 binding.header.text = data.someText
                 binding.descriptionTextView.text = data.someDescription
-                binding.saveItem.setOnClickListener {
-                    onListItemClickListener.onItemClick(
-                        data
-                    )
-                }
             }
             binding.dragHandleImageView.setOnTouchListener { _, event ->
                 if (event.actionMasked == MotionEvent.ACTION_DOWN) {
@@ -125,6 +120,10 @@ class RecyclerActivityAdapter(
             binding.deleteItem.setOnClickListener { removeItem() }
             binding.downItem.setOnClickListener { moveDown() }
             binding.upItem.setOnClickListener { moveUp() }
+            if (layoutPosition != RecyclerView.NO_POSITION) {
+                binding.writeTextHeader.setText(data.someText)
+                binding.saveItem.setOnClickListener { saveText() }
+            }
             binding.dragHandleImageView.setOnTouchListener { _, event ->
                 if (event.actionMasked == MotionEvent.ACTION_DOWN) {
                     dragListener.onStartDrag(this)
@@ -159,6 +158,18 @@ class RecyclerActivityAdapter(
                 }
                 notifyItemMoved(currentPosition, currentPosition + 1)
             }
+        }
+
+        private fun saveText() {
+            data.removeAt(layoutPosition)
+            data.add(
+                layoutPosition,
+                DataNote(
+                    binding.writeTextHeader.text.toString(),
+                    binding.writeTextDescr.text.toString()
+                )
+            )
+            notifyItemChanged(layoutPosition)
         }
     }
 
