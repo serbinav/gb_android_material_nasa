@@ -45,7 +45,7 @@ class RecyclerActivityAdapter(
     override fun getItemViewType(position: Int): Int {
         return when {
             position == 0 -> TYPE_HEADER
-            data[position].someDescription.isNullOrBlank() -> TYPE_EDIT
+            data[position].flagEdit -> TYPE_EDIT
             else -> TYPE_VIEW
         }
     }
@@ -53,16 +53,15 @@ class RecyclerActivityAdapter(
     inner class WatchViewHolder(private val binding: RecyclerItemViewBinding) :
         BaseViewHolder(binding.root) {
         override fun bind(data: DataNote) {
+            binding.header.text = data.someText
+            binding.descriptionTextView.text = data.someDescription
             binding.addItem.setOnClickListener { addItem() }
             binding.deleteItem.setOnClickListener { removeItem() }
             binding.downItem.setOnClickListener { moveDown() }
             binding.upItem.setOnClickListener { moveUp() }
             binding.header.setOnClickListener { toggleText() }
             binding.descriptionTextView.setOnClickListener { toggleText() }
-            if (layoutPosition != RecyclerView.NO_POSITION) {
-                binding.header.text = data.someText
-                binding.descriptionTextView.text = data.someDescription
-            }
+            binding.editItem.setOnClickListener { editText() }
             binding.dragHandleImageView.setOnTouchListener { _, event ->
                 if (event.actionMasked == MotionEvent.ACTION_DOWN) {
                     dragListener.onStartDrag(this)
@@ -72,7 +71,7 @@ class RecyclerActivityAdapter(
         }
 
         private fun addItem() {
-            data.add(layoutPosition, DataNote("Inject", "some text"))
+            data.add(layoutPosition, DataNote("Inject", "Java"))
             notifyItemInserted(layoutPosition)
         }
 
@@ -110,20 +109,32 @@ class RecyclerActivityAdapter(
             )
             notifyItemChanged(layoutPosition)
         }
+
+        private fun editText() {
+            data.removeAt(layoutPosition)
+            data.add(
+                layoutPosition,
+                DataNote(
+                    binding.header.text.toString(),
+                    binding.descriptionTextView.text.toString(),
+                    true
+                )
+            )
+            notifyItemChanged(layoutPosition)
+        }
     }
 
     inner class EditViewHolder(private val binding: RecyclerItemEditBinding) :
         BaseViewHolder(binding.root) {
         override fun bind(data: DataNote) {
+            binding.writeTextHeader.setText(data.someText)
+            binding.writeTextDescr.setText(data.someDescription)
             binding.editImageView.setOnClickListener { onListItemClickListener.onItemClick(data) }
             binding.addItem.setOnClickListener { addItem() }
             binding.deleteItem.setOnClickListener { removeItem() }
             binding.downItem.setOnClickListener { moveDown() }
             binding.upItem.setOnClickListener { moveUp() }
-            if (layoutPosition != RecyclerView.NO_POSITION) {
-                binding.writeTextHeader.setText(data.someText)
-                binding.saveItem.setOnClickListener { saveText() }
-            }
+            binding.saveItem.setOnClickListener { saveText() }
             binding.dragHandleImageView.setOnTouchListener { _, event ->
                 if (event.actionMasked == MotionEvent.ACTION_DOWN) {
                     dragListener.onStartDrag(this)
@@ -133,7 +144,7 @@ class RecyclerActivityAdapter(
         }
 
         private fun addItem() {
-            data.add(layoutPosition, DataNote("Autowired", ""))
+            data.add(layoutPosition, DataNote("Autowired", "Kotlin", true))
             notifyItemInserted(layoutPosition)
         }
 
