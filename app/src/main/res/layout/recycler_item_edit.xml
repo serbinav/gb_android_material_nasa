@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/edit_image_view"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_edit_note_50" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="edit_image_view" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/write_text_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxLines="3"
+        android:singleLine="false"
+        android:text="@string/item_edit_header"
+        android:textColor="@color/purple_700"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/write_text_descr"
+        app:layout_constraintEnd_toStartOf="@+id/up_item"
+        app:layout_constraintStart_toEndOf="@+id/barrier_text"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/write_text_descr"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/item_edit_header"
+        android:textColor="@color/purple_200"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/down_item"
+        app:layout_constraintStart_toEndOf="@+id/barrier_text"
+        app:layout_constraintTop_toBottomOf="@+id/write_text_header" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/save_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_save_24" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/add_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/save_item"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/delete_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_item"
+        app:srcCompat="@drawable/ic_baseline_delete_outline_24" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="add_item" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/up_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        app:layout_constraintEnd_toStartOf="@id/barrier"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_arrow_upward_24" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/drag_handle_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        app:layout_constraintEnd_toStartOf="@id/barrier"
+        app:layout_constraintTop_toBottomOf="@id/up_item"
+        app:srcCompat="@drawable/ic_baseline_view_headline_24_hamburger" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/down_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        app:layout_constraintEnd_toStartOf="@id/barrier"
+        app:layout_constraintTop_toBottomOf="@id/drag_handle_image_view"
+        app:srcCompat="@drawable/ic_baseline_arrow_downward_24" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#000"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_image_view"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

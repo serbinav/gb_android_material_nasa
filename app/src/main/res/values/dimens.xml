@@ -8,4 +8,5 @@
     <dimen name="stroke_width_default">2dp</dimen>
     <dimen name="stroke_width_focused">3dp</dimen>
     <dimen name="constraint_circle_radius">75dp</dimen>
+    <dimen name="margin_icon_recyclerview_top">6dp</dimen>
 </resources>
