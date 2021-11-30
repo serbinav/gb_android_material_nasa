@@ -4,6 +4,7 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.content.Intent
+import android.graphics.Typeface
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -167,6 +168,11 @@ class FragmentMain : Fragment() {
                         //showSuccess()
                         binding.bottomSheet.bottomSheetDescriptionHeader.text =
                             serverResponseData.title
+
+                        activity?.let {
+                            binding.bottomSheet.bottomSheetDescription.typeface =
+                                Typeface.createFromAsset(it.assets, "FallingSkyCondensed.otf")
+                        }
 
                         binding.bottomSheet.bottomSheetDescription.text =
                             serverResponseData.explanation
