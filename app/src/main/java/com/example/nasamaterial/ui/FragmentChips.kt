@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import com.example.nasamaterial.viewModel.FragmentChipsViewModel
 import com.example.nasamaterial.R
 import com.google.android.material.chip.Chip
+import android.text.method.ScrollingMovementMethod
+import androidx.appcompat.widget.AppCompatTextView
 
 class FragmentChips : Fragment() {
 
@@ -56,5 +58,8 @@ class FragmentChips : Fragment() {
         chipSeaWave.setOnClickListener {
             onThemeChanged.onThemeChanged(2)
         }
+
+        val textBig: AppCompatTextView = view.findViewById(R.id.text_big)
+        textBig.setMovementMethod(ScrollingMovementMethod())
     }
 }
