@@ -17,7 +17,6 @@ class RecyclerActivity : AppCompatActivity() {
     private lateinit var adapter: RecyclerActivityAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(R.style.Theme_NasaMaterial)
         super.onCreate(savedInstanceState)
         binding = ActivityRecyclerBinding.inflate(layoutInflater)
         setContentView(binding.root)

@@ -9,7 +9,6 @@ import com.google.android.material.tabs.TabLayout
 
 class PagerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(R.style.Theme_NasaMaterial)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pager)
         val pager: ViewPager = findViewById(R.id.view_pager)
