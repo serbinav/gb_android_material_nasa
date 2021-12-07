@@ -22,7 +22,11 @@
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"
-            android:exported="true">
+            android:exported="false" />
+        <activity
+            android:name=".ui.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.NasaMaterial.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

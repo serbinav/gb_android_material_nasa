@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nasamaterial.DataNote
+import com.example.nasamaterial.R
 import com.example.nasamaterial.databinding.ActivityRecyclerBinding
 import com.example.nasamaterial.viewModel.SomeInterface
 
